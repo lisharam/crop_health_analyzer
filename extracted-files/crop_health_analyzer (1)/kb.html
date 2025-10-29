@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Knowledge Base - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Page-local KB button overrides to ensure visibility */
+    .kb-question{
+      display:block;
+      width:100%;
+      padding:12px 16px;
+      border-radius:8px;
+      background:#ffffff;
+      color:#2f8f4e;
+      font-weight:700;
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 6px 14px rgba(0,0,0,0.06);
+      text-align:left;
+    }
+    .kb-question:hover{transform:translateY(-2px)}
+    .kb-question:focus{outline:3px solid rgba(47,143,78,0.12);outline-offset:3px}
+
+    .kb-answer .read-aloud{
+      display:inline-block;
+      margin-top:10px;
+      background:#2f8f4e;
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      border:0;
+      font-weight:600;
+      box-shadow:0 6px 14px rgba(47,143,78,0.12);
+    }
+    .kb-answer .read-aloud:hover{filter:brightness(0.95)}
+    .kb-answer .read-aloud:focus{outline:3px solid rgba(255,255,255,0.12);outline-offset:3px}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name" data-i18n="brand.name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+    <a class="nav-btn" href="index.html" data-i18n="nav.home">Home</a>
+    <a class="nav-btn" href="upload.html" data-i18n="nav.upload">Upload</a>
+    <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+    <a class="nav-btn" href="dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+  <a class="nav-btn" href="kb.html" data-i18n="nav.kb">Knowledge base</a>
+    <a class="nav-btn" href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a class="nav-btn admin" href="admin.html" data-i18n="nav.admin">Admin</a>
+  </nav>
+  <div class="auth">
+  <a class="btn alt" href="login.html">Sign in</a>
+    <a class="btn" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="container kb">
+  <div class="kb-header">
+  <h1 data-i18n="kb.title">Knowledge Base</h1>
+    <div class="kb-controls">
+  <input id="kbSearch" type="search" placeholder="Search topics, symptoms or remedies..." data-i18n-placeholder="kb.search_placeholder" />
+      <div class="kb-filters">
+  <select id="filterCrop" data-i18n="kb.filter_crop"><option value="all" data-i18n="kb.option_all">All crops</option><option value="tomato">Tomato</option><option value="rice">Rice</option><option value="wheat">Wheat</option><option value="cotton">Cotton</option><option value="maize">Maize</option><option value="potato">Potato</option></select>
+  <select id="filterType" data-i18n="kb.filter_type"><option value="all" data-i18n="kb.option_all">All types</option><option value="fungal">Fungal</option><option value="bacterial">Bacterial</option><option value="viral">Viral</option><option value="pest">Pest</option></select>
+  <select id="filterSeason" data-i18n="kb.filter_season"><option value="all" data-i18n="kb.option_all">All seasons</option><option value="rabi">Rabi</option><option value="kharif">Kharif</option><option value="spring">Spring</option></select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left sidebar removed as requested -->
+
+  <section class="kb-content" id="kbList">
+    <div class="kb-item" data-tags="tomato" data-crop="tomato" data-type="fungal" data-season="spring">
+      <button class="kb-question" data-i18n="kb.q_tomato_leafblight">Tomato — Leaf Blight</button>
+      <div class="kb-answer">
+  <p><strong data-i18n="kb.symptoms">Symptoms:</strong> <span data-i18n="kb.a_tomato_leafblight_symptoms">brown spots on leaves, yellowing.</span></p>
+  <p><strong data-i18n="kb.remedy">Remedy:</strong> <span data-i18n="kb.a_tomato_leafblight_remedy">Remove affected leaves, neem spray (organic). Apply recommended fungicide if severe.</span></p>
+  <p><strong data-i18n="kb.prevention">Prevention:</strong> <span data-i18n="kb.a_tomato_leafblight_prevention">Crop rotation, spacing, and avoid overhead irrigation at night.</span></p>
+  <button class="read-aloud" data-i18n="kb.read_aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <div class="kb-item" data-tags="rice" data-crop="rice" data-type="fungal" data-season="kharif">
+      <button class="kb-question">Rice — Blast</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> Diamond-shaped lesions on leaves; grey center, brown borders.</p>
+        <p><strong>Cause:</strong> Fungus <em>Magnaporthe oryzae</em>.</p>
+        <p><strong>Treatment:</strong> Spray Tricyclazole (0.6g/litre). Organic: remove infected plant parts and improve airflow.</p>
+        <p><strong>Prevention:</strong> Avoid excessive nitrogen fertilizer; rotate crops.</p>
+        <div class="kb-media">
+          <img src="https://i.pinimg.com/236x/1a/0b/7e/1a0b7e.jpg" alt="rice blast 1"/>
+          <img src="https://i.pinimg.com/236x/2b/3c/3d/2b3c3d.jpg" alt="rice blast 2"/>
+        </div>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <div class="kb-item" data-tags="wheat" data-crop="wheat" data-type="fungal" data-season="rabi">
+      <button class="kb-question">Wheat — Rust</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> rust-colored pustules on leaves.</p>
+        <p><strong>Cause:</strong> Puccinia spp.</p>
+        <p><strong>Treatment:</strong> Apply appropriate fungicide; use resistant varieties.</p>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <div class="kb-item" data-tags="cotton" data-crop="cotton" data-type="viral" data-season="kharif">
+      <button class="kb-question">Cotton — Leaf Curl Virus</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> Curling and thickening of young leaves.</p>
+        <p><strong>Cause:</strong> Whitefly-borne virus.</p>
+        <p><strong>Treatment:</strong> Spray Imidacloprid (0.5ml/litre). Organic: Neem oil 5ml/litre every 10 days.</p>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <!-- Additional topics -->
+    <div class="kb-item" data-tags="maize" data-crop="maize" data-type="fungal" data-season="kharif">
+      <button class="kb-question">Maize — Downy Mildew</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> Yellowish streaks on leaves; white fungal growth underside.</p>
+        <p><strong>Cause:</strong> <em>Peronosclerospora sorghi</em>.</p>
+        <p><strong>Treatment:</strong> Seed treatment with Metalaxyl before sowing.</p>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <div class="kb-item" data-tags="potato" data-crop="potato" data-type="fungal" data-season="rabi">
+      <button class="kb-question">Potato — Late Blight</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> Dark brown spots on leaf edges spreading quickly.</p>
+        <p><strong>Cause:</strong> <em>Phytophthora infestans</em>.</p>
+        <p><strong>Treatment:</strong> Mancozeb 2g/litre every 10 days. Avoid overhead irrigation.</p>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <div class="kb-item" data-tags="tomato" data-crop="tomato" data-type="viral" data-season="spring">
+      <button class="kb-question">Tomato — Leaf Curl Virus</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> Curling, twisting of leaves, stunted growth.</p>
+        <p><strong>Cause:</strong> Whitefly-transmitted virus.</p>
+        <p><strong>Treatment:</strong> Neem oil spray or marigold trap crops; remove infected plants early.</p>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+
+    <div class="kb-item" data-tags="tomato" data-crop="tomato" data-type="bacterial" data-season="spring">
+      <button class="kb-question">Tomato — Bacterial Spot</button>
+      <div class="kb-answer">
+        <p><strong>Symptoms:</strong> Small, water-soaked spots on fruit and leaves.</p>
+        <p><strong>Cause:</strong> <em>Xanthomonas</em> spp.</p>
+        <p><strong>Treatment:</strong> Copper-based sprays and sanitation.</p>
+        <button class="read-aloud">🔊 Read aloud</button>
+      </div>
+    </div>
+  </section>
+  <div class="kb-side-widgets">
+    <div class="widget">
+      <h4>Did You Know?</h4>
+      <ul>
+        <li>Neem oil is a natural pesticide used for centuries and is effective against many pests.</li>
+        <li>Crop rotation reduces soil-borne disease pressure and improves soil health.</li>
+        <li>Overuse of nitrogen can make crops more susceptible to fungal diseases.</li>
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h4>Farming Tips of the Week</h4>
+      <ol>
+        <li>Check irrigation uniformity — avoid waterlogged areas.</li>
+        <li>Inspect for whitefly and early leaf spots — act quickly.</li>
+        <li>Use mulches to conserve soil moisture in dry spells.</li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>© Crop Health Analyzer</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="ai_features.js"></script>
+</body>
+</html>

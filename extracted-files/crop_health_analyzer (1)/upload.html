@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Upload - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="upload-page">
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name" data-i18n="brand.name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+    <a class="nav-btn" href="index.html" data-i18n="nav.home">Home</a>
+    <a class="nav-btn" href="upload.html" data-i18n="nav.upload">Upload</a>
+    <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+    <a class="nav-btn" href="dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+  <a class="nav-btn" href="kb.html" data-i18n="nav.kb">Knowledge base</a>
+    <a class="nav-btn" href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a class="nav-btn admin" href="admin.html" data-i18n="nav.admin">Admin</a>
+  </nav>
+  <div class="auth">
+  <a class="btn alt" href="login.html">Sign in</a>
+    <a class="btn" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="container">
+  <h1 data-i18n="upload.title">Upload Crop Image for Disease Analysis</h1>
+
+  <div class="upload-grid">
+    <div class="uploader">
+      <label class="file-label" data-i18n="upload.choose_files">
+        📁 Choose Image(s)
+        <input id="fileInput" type="file" accept="image/*" multiple>
+      </label>
+
+      <label class="file-label" data-i18n="upload.capture_camera">
+        📸 Capture From Camera
+        <input id="cameraInput" type="file" accept="image/*" capture="environment">
+      </label>
+
+      <div class="preview" id="preview"></div>
+
+      <div class="form-row">
+        <label data-i18n="upload.crop_type">Crop Type
+          <select id="cropType">
+            <option value="tomato">Tomato</option>
+            <option value="rice">Rice</option>
+            <option value="wheat">Wheat</option>
+            <option value="cotton">Cotton</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+      </div>
+
+  <button id="analyzeBtn" class="btn primary" data-i18n="upload.analyze">Analyze Image</button>
+  <div id="analyzeStatus" class="status" data-i18n="upload.status"></div>
+  
+  <!-- Voice-to-AI Diagnosis -->
+  <div class="voice-diagnosis" style="margin-top:18px;border-top:1px dashed rgba(0,0,0,0.06);padding-top:12px">
+    <h3 data-i18n="voice.title">Voice Diagnosis (speak your problem)</h3>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+      <select id="voiceLang">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="bn">বাংলা</option>
+        <option value="te">తెలుగు</option>
+        <option value="kn">ಕನ್ನಡ</option>
+        <option value="ta">தமிழ்</option>
+      </select>
+      <button id="startVoice" class="btn">🎤 Start Listening</button>
+      <button id="stopVoice" class="btn alt">■ Stop</button>
+    </div>
+    <div id="transcript" style="margin-top:10px;color:#444"><em data-i18n="voice.no_transcript">No transcript yet.</em></div>
+    <div id="voiceReply" style="margin-top:10px;background:#fff;padding:10px;border-radius:8px;color:#222;display:none"></div>
+
+    <!-- Text fallback for devices without mic -->
+    <div style="margin-top:12px">
+      <label>Or type the symptom:<input id="textDiag" placeholder="e.g. My tomato leaves are yellow and curling" style="width:100%;margin-top:6px;padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.06)" /></label>
+      <div style="margin-top:8px;display:flex;gap:8px"><button id="sendTextDiag" class="btn">Get Diagnosis</button><button id="clearHistory" class="btn alt">Clear History</button></div>
+    </div>
+
+    <!-- History of voice/text diagnoses -->
+    <div id="diagHistory" style="margin-top:14px;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px">
+      <h4>Past diagnoses</h4>
+      <div id="historyList">(no history)</div>
+    </div>
+  </div>
+    </div>
+
+    <aside class="help">
+      <h3>Tips for good photos</h3>
+      <ul>
+        <li>Take clear close-ups of affected area</li>
+        <li>Use natural light</li>
+        <li>Include leaf + stem if possible</li>
+        <li>Upload multiple angles</li>
+      </ul>
+      <h3>Accessibility</h3>
+      <p>Use the Voice Guide button in the top bar for read-aloud instructions.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>© Crop Health Analyzer</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="ai_features.js"></script>
+</body>
+</html>

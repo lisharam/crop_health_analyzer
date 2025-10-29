@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name" data-i18n="brand.name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+    <a class="nav-btn" href="index.html" data-i18n="nav.home">Home</a>
+    <a class="nav-btn" href="upload.html" data-i18n="nav.upload">Upload</a>
+    <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+    <a class="nav-btn" href="dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+  <a class="nav-btn" href="kb.html" data-i18n="nav.kb">Knowledge base</a>
+    <a class="nav-btn" href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a class="nav-btn admin" href="admin.html" data-i18n="nav.admin">Admin</a>
+  </nav>
+  <div class="auth">
+  <a class="btn alt" href="login.html" data-i18n="auth.sign_in">Sign in</a>
+    <a class="btn" href="signup.html" data-i18n="auth.sign_up">Sign up</a>
+  </div>
+</header>
+
+<main class="container">
+  <h1 data-i18n="dashboard.title">Your Dashboard</h1>
+  <div class="dash-actions">
+  <button onclick="location.href='upload.html'" class="btn" data-i18n="dashboard.btn_upload_new">Upload New Image</button>
+  <button id="clearHistory" class="btn alt" data-i18n="dashboard.btn_clear_history">Clear History</button>
+  </div>
+
+  <div id="historyList" class="history-list">
+    <!-- Filled by script -->
+  </div>
+
+  <h3 data-i18n="analytics.title">Analytics</h3>
+  <div id="analytics" class="analytics">
+    <!-- Simple visualization via text -->
+  </div>
+</main>
+
+<footer class="footer">
+  <div data-i18n="footer.copy">© Crop Health Analyzer</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="ai_features.js"></script>
+</body>
+</html>

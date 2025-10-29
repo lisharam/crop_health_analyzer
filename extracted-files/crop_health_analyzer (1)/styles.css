@@ -1,0 +1,172 @@
+/* Simple responsive CSS for Crop Health Analyzer */
+:root{
+  --green:#2f8f4e;
+  --accent:#6fbf73;
+  --muted:#666;
+  --bg:#f7faf7;
+  --card:#ffffff;
+  --maxw:1100px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{margin:0;color:#123;line-height:1.4;-webkit-font-smoothing:antialiased}
+
+/* Page background using user reference image with a soft white overlay for readability.
+   If hotlinking is blocked in some environments, consider saving the image locally and
+   using a relative path like url('./assets/bg.jpg') instead. */
+body{
+  /* Default site background: gentle photographic background with soft dark overlay for contrast.
+     This matches the homepage background so all pages share the same nature-themed look. */
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('https://i.pinimg.com/736x/db/ec/10/dbec10cf21f5ddcb5203175bf1fb4da2.jpg') center/cover no-repeat fixed;
+  color: #fff; /* default readable colour on top of the darkened photo */
+}
+.topbar{
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 10px 18px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;
+  position:sticky;top:0;z-index:20;color:#fff;
+  min-width:0; /* allow children to shrink correctly in flex layout */
+}
+.topbar .logo{font-size:1.4rem;font-weight:700;color:#fff}
+.topbar nav a{color:#fff;text-decoration:none;margin:0 10px;font-weight:600}
+.topbar .auth .btn{margin-left:8px}
+.top-nav{display:flex;gap:8px;align-items:center;white-space:nowrap;flex-wrap:nowrap;flex:1 1 auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.top-nav a{white-space:nowrap;flex:0 0 auto}
+.nav-btn{background:rgba(255,255,255,0.1);color:#fff;padding:8px 12px;border-radius:999px;text-decoration:none;border:1px solid rgba(255,255,255,0.08);font-weight:600}
+.nav-btn:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px)}
+.nav-btn.admin{
+  /* admin button: default subtle style, only highlighted when active */
+  background:rgba(255,255,255,0.06);
+  color:#fff;
+  border-color:rgba(111,191,115,0.12);
+}
+.nav-btn.admin:hover{filter:brightness(0.95);transform:translateY(-2px)}
+.nav-btn.admin.active{background:var(--accent);color:#fff;border-color:transparent;font-weight:700}
+.nav-btn.active{box-shadow:0 6px 18px rgba(15,20,10,0.12);transform:translateY(-2px);background:linear-gradient(90deg,var(--accent),var(--green));color:#fff}
+.topbar .auth{display:flex;gap:8px;align-items:center}
+.topbar .auth a{color:#fff;text-decoration:none}
+.topbar .auth .btn{padding:6px 10px;border-radius:8px}
+.topbar .auth .btn.alt{background:rgba(255,255,255,.15);color:#fff;border-radius:8px}
+/* Make the last auth button (Sign up) use the accent color to match admin nav */
+.topbar .auth .btn:last-child{background:rgba(255,255,255,0.12);color:#fff}
+.topbar .auth .btn.active{background:var(--accent);color:#fff}
+
+/* Ensure header logo and brand don't wrap into multiple lines */
+.topbar .logo{display:flex;align-items:center;gap:10px;font-weight:700;flex:0 0 auto;min-width:0}
+.brand-name{font-size:16px;color:rgba(255,255,255,0.95);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block;max-width:220px}
+.topbar .auth{flex:0 0 auto}
+
+/* Brand styling next to logo emoji */
+.logo{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo-emoji{font-size:20px;line-height:1}
+.brand-name{font-size:16px;color:rgba(255,255,255,0.95)}
+
+.container{max-width:var(--maxw);margin:28px auto;padding:20px 18px;background:rgba(255,255,255,0.02);border-radius:12px;box-shadow:0 12px 30px rgba(15,20,10,0.06);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03)}
+.hero{background:transparent;padding:28px;border-radius:10px;margin-bottom:18px}
+.hero h1{margin:0 0 10px;font-size:28px}
+.cta .btn{margin-right:8px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
+.card{background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.03);border:1px solid rgba(255,255,255,0.03)}
+.testimonial{background:rgba(255,255,255,0.02);padding:10px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+
+/* Knowledge Base styles */
+.kb-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.kb-controls{display:flex;gap:12px;align-items:center}
+.kb-controls input[type="search"]{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);min-width:320px}
+.kb-tags{display:flex;gap:8px}
+.kb-tags .tag{background:rgba(0,0,0,0.06);border:0;padding:8px 10px;border-radius:999px;cursor:pointer}
+.kb-tags .tag.active{background:var(--green);color:#fff}
+.kb-sidebar{float:left;width:220px;margin-right:18px}
+.kb-sidebar ul{list-style:none;padding:0}
+.kb-sidebar a{color:var(--green);text-decoration:none}
+.kb-content{overflow:hidden}
+.kb-item{margin-bottom:10px;border-radius:8px}
+.kb-question{display:block;width:100%;text-align:left;padding:14px 16px;border-radius:8px;background:var(--green);color:#fff;font-weight:700;border:0;box-shadow:0 6px 16px rgba(15,20,10,0.12)}
+.kb-question{transition:transform .12s ease,box-shadow .12s ease,opacity .12s}
+.kb-question:hover{transform:translateY(-2px);opacity:0.98}
+.kb-question:focus-visible{outline:3px solid rgba(255,255,255,0.12);outline-offset:3px}
+.kb-answer{display:none;padding:14px;background:rgba(255,255,255,0.03);border-radius:10px;margin-top:8px;border:1px solid rgba(255,255,255,0.04)}
+.kb-answer .kb-media{display:flex;gap:10px;margin-top:10px}
+.kb-answer .kb-media img{width:140px;height:90px;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,0.06)}
+.kb-answer .read-aloud{display:inline-block;margin-top:10px;background:#ffffff;color:var(--green);border:0;padding:10px 14px;border-radius:8px;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,0.08);font-weight:700;transition:transform .12s ease,filter .12s ease}
+.kb-answer .read-aloud:hover{transform:translateY(-2px);filter:brightness(0.98)}
+.kb-answer .read-aloud:focus-visible{outline:3px solid rgba(255,255,255,0.22);outline-offset:4px}
+/* subtle transition and visual feedback when read is stopped via double-click */
+.kb-answer .read-aloud{transition:transform .12s ease,box-shadow .12s ease,opacity .12s}
+.kb-answer .read-aloud[data-stopped="true"]{
+  transform:scale(0.98);
+  box-shadow:0 0 0 4px rgba(0,0,0,0.06) inset;
+  opacity:0.85;
+}
+
+/* Feedback for header voice guide button when stopped */
+#voiceGuide[data-stopped="true"]{transform:scale(0.98);opacity:0.9}
+
+/* Crop-specific light tints for read-aloud buttons (subtle, minimal) */
+.kb-content.crop-tomato .read-aloud{background:rgba(220,38,38,0.06);color:#b93a3a;border-color:rgba(220,38,38,0.12)}
+.kb-content.crop-rice .read-aloud{background:rgba(197,150,63,0.06);color:#9e7a17;border-color:rgba(197,150,63,0.12)}
+.kb-content.crop-wheat .read-aloud{background:rgba(210,180,140,0.06);color:#a67c2f;border-color:rgba(166,123,47,0.12)}
+.kb-content.crop-cotton .read-aloud{background:rgba(173,216,230,0.06);color:#2b80a6;border-color:rgba(173,216,230,0.12)}
+.kb-content.crop-maize .read-aloud{background:rgba(255,236,139,0.06);color:#9a7a00;border-color:rgba(255,236,139,0.12)}
+.kb-content.crop-potato .read-aloud{background:rgba(216,191,216,0.06);color:#7a3b7a;border-color:rgba(216,191,216,0.12)}
+
+/* when 'all' or no crop selected, keep default minimal look */
+.kb-content:not([class*="crop-"]) .read-aloud{background:rgba(255,255,255,0.96);color:var(--green)}
+
+/* Ancillary KB sections */
+.kb-side-widgets{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.widget{background:rgba(255,255,255,0.03);padding:12px;border-radius:8px;flex:1;min-width:220px;border:1px solid rgba(255,255,255,0.03)}
+.widget h4{margin-top:0}
+
+@media(max-width:900px){
+  .kb-sidebar{display:none}
+  .kb-controls input[type="search"]{min-width:160px}
+}
+
+@media(max-width:480px){
+  /* slightly reduce nav label size on very small screens to keep single-line */
+  .topbar .brand-name{font-size:14px}
+  .top-nav .nav-btn{padding:6px 8px;font-size:13px}
+  /* further compress nav buttons when viewport is extremely narrow */
+  @media(max-width:380px){
+    .top-nav .nav-btn{padding:4px 6px;font-size:12px}
+  }
+}
+
+/* Upload page */
+.upload-page .upload-grid{display:grid;grid-template-columns:1fr 300px;gap:18px}
+.upload-page .uploader{background:rgba(255,255,255,0.03);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(4px)}
+.upload-page .file-label{display:block;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.04);padding:8px;margin-bottom:8px;border-radius:6px;cursor:pointer}
+.file-label input{display:none}
+.preview{display:flex;gap:8px;flex-wrap:wrap;padding-top:8px}
+.preview img{max-width:140px;border-radius:6px;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+.form-row{margin:8px 0}
+
+/* Result */
+.result-grid{display:grid;grid-template-columns:1fr 300px;gap:18px}
+.result-card{background:rgba(255,255,255,0.03);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.img-wrap{min-height:180px;border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;padding:10px}
+.prediction h2{margin:8px 0}
+
+/* Dashboard */
+.history-list .item{background:rgba(255,255,255,0.03);padding:10px;margin-bottom:8px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,255,255,0.03)}
+.dash-actions{margin-bottom:12px}
+
+/* Misc */
+.btn{background:var(--green);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.alt{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.primary{background:var(--accent)}
+.status{margin-top:8px;color:var(--muted)}
+.footer{padding:16px;text-align:center;color:#ccc;margin-top:20px;background:rgba(0,0,0,0.18);backdrop-filter:blur(4px);border-top:1px solid rgba(255,255,255,0.02)}
+
+/* Responsive */
+@media(max-width:800px){
+  .upload-page .upload-grid,.result-grid{grid-template-columns:1fr}
+  /* make top nav horizontally scrollable on small screens */
+  .top-nav{overflow:auto;gap:10px;padding:6px 4px; -webkit-overflow-scrolling:touch}
+  .nav-btn{flex:0 0 auto}
+}

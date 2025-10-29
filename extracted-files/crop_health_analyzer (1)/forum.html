@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Community Forum - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .forum-container{max-width:1000px;margin:20px auto;padding:18px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .post{border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;margin-bottom:12px}
+    .post img{max-width:160px;border-radius:8px;margin-top:8px}
+    .tag{display:inline-block;background:rgba(47,143,78,0.12);padding:4px 8px;border-radius:6px;margin-right:6px;font-weight:600}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+   <a class="nav-btn" href="index.html">Home</a>
+      <a class="nav-btn" href="upload.html">Upload</a>
+       <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+      <a class="nav-btn" href="dashboard.html">Dashboard</a>
+      <a class="nav-btn" href="kb.html">Knowledge base</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
+      <a class="nav-btn admin" href="admin.html">Admin</a>
+  </nav>
+  <div class="auth">
+    <a class="btn alt" href="login.html">Sign in</a>
+    <a class="btn" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="container forum-container">
+  <h1>Community AI Forum</h1>
+  <p>Post a question with images. The AI will auto-tag and suggest remedies; others can reply.</p>
+
+  <form id="postForm" onsubmit="return false;">
+    <label>Title<input id="postTitle" required/></label>
+    <label>Details<textarea id="postDetails" rows="3" required></textarea></label>
+    <label>Image<input id="postImage" type="file" accept="image/*" /></label>
+    <div style="margin-top:8px">
+      <button id="postSubmit" class="btn">Post</button>
+    </div>
+  </form>
+
+  <div id="postsList" style="margin-top:18px"></div>
+</main>
+
+<script src="ai_features.js"></script>
+</body>
+</html>
