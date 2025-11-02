@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="upload.html">Upload</a>
+    <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+    <a class="nav-btn" href="dashboard.html">Dashboard</a>
+  <a class="nav-btn" href="kb.html">Knowledge base</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
+    <a class="nav-btn admin" href="admin.html">Admin</a>
+  </nav>
+  <div class="auth">
+  <a class="btn alt" href="login.html">Sign in</a>
+    <a class="btn" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Admin Panel (Demo)</h1>
+  <p>This demo admin allows managing simple data stored in localStorage (client-side).</p>
+
+  <div class="admin-cards">
+    <div class="card">
+      <h3>Manage Remedies</h3>
+      <p>Add or edit remedies in knowledge base (demo).</p>
+    </div>
+    <div class="card">
+      <h3>Model Update</h3>
+      <p>Trigger a mock model update (demo).</p>
+      <button onclick="alert('Model update simulated (demo).')" class="btn">Run Update</button>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>© Crop Health Analyzer</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="ai_features.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name" data-i18n="brand.name">Crop Health Analyzer</span></div>
+    <nav class="top-nav" aria-label="Top navigation">
+      <a class="nav-btn" href="index.html">Home</a>
+      <a class="nav-btn" href="upload.html">Upload</a>
+    <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+      <a class="nav-btn" href="dashboard.html">Dashboard</a>
+      <a class="nav-btn" href="kb.html">Knowledge base</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
+      <a class="nav-btn admin" href="admin.html">Admin</a>
+    </nav>
+    <div class="auth">
+      <a class="btn" href="login.html">Sign in</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Create an account</h1>
+      <p>Sign up to save analyses, access expert help, and manage your crop records.</p>
+    </section>
+
+    <section class="card auth-card">
+      <form id="signupForm" onsubmit="return false;">
+        <label>Full name
+          <input id="signupName" required placeholder="Your name" />
+        </label>
+        <label>Email
+          <input id="signupEmail" type="email" required placeholder="you@example.com" />
+        </label>
+        <label>Password
+          <input id="signupPassword" type="password" required placeholder="Choose a password" />
+        </label>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+          <button id="signupSubmit" class="btn primary">Sign up</button>
+          <button id="cancelSignup" class="btn alt">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© Crop Health Analyzer</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="ai_features.js"></script>
+</body>
+</html>

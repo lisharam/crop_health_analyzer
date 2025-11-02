@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fertilizer & Irrigation Advisor - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .chat-container{max-width:900px;margin:24px auto;padding:20px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .messages{height:420px;overflow:auto;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:8px;background:rgba(0,0,0,0.06)}
+    .msg{margin:8px 0;padding:8px 12px;border-radius:14px;display:inline-block;max-width:80%}
+    .msg.user{background:rgba(47,143,78,0.12);align-self:flex-end}
+    .msg.ai{background:rgba(255,255,255,0.06)}
+    .input-row{display:flex;gap:8px;margin-top:12px}
+    .lang-select{margin-left:8px}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+    <a class="nav-btn" href="index.html">Home</a>
+      <a class="nav-btn" href="upload.html">Upload</a>
+       <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+      <a class="nav-btn" href="dashboard.html">Dashboard</a>
+      <a class="nav-btn" href="kb.html">Knowledge base</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
+      <a class="nav-btn admin" href="admin.html">Admin</a>
+  </nav>
+  <div class="auth">
+    <a class="btn alt" href="login.html">Sign in</a>
+    <a class="btn" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="container chat-container">
+  <h1>Fertilizer & Irrigation Advisor</h1>
+  <p>Ask the assistant in English or Hindi. This is a demo local advisor — replace the mock AI call with a real AI API to get smarter answers.</p>
+  <div class="messages" id="chatMessages" aria-live="polite"></div>
+
+  <div class="input-row">
+    <input id="chatInput" placeholder="e.g. How much urea for 1 acre of wheat?" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" />
+    <select id="chatLang" class="lang-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="bn">বাংলা</option>
+      <option value="te">తెలుగు</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ta">தமிழ்</option>
+    </select>
+    <button id="chatSend" class="btn">Send</button>
+  </div>
+
+  <div style="margin-top:12px;color:#ddd;font-size:0.9rem">
+    <strong>Notes:</strong> AI responds using local weather, soil, and crop growth data., 
+  </div>
+</main>
+
+<script src="ai_features.js"></script>
+</body>
+</html>
