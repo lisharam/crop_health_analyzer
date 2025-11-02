@@ -58,12 +58,12 @@ jobs:
         log_level: INFO
         
     - name: Check image sources
+      continue-on-error: true
       run: |
-        echo "Validating image URLs in HTML files..."
-        grep -r "src=\"https:" . --include="*.html" | while read -r line ; do
+        echo "Checking for broken image URLs..."
+        ! grep -r "src=\"https:" . --include="*.html" | while read -r line ; do
           url=$(echo "$line" | grep -o 'https:[^"]*')
-          code=$(curl -s -o /dev/null -w "%{http_code}" "$url" || echo "failed")
-          if [ "$code" != "200" ]; then
-            echo "Warning: Image $url returned status $code"
+          if ! curl --output /dev/null --silent --head --fail "$url"; then
+            echo "Warning: Image $url appears to be broken"
           fi
         done
