@@ -29,12 +29,20 @@ jobs:
     - name: Run ESLint
       run: npm run lint
       
-    - name: Run tests
+    - name: Run tests with dummy key
       run: npm test
       env:
         CI: true
-        # Use a dummy key for tests - real key only needed in deployment
         OPENAI_API_KEY: 'sk-dummy-key-for-testing'
+        PROXY_TOKEN: 'test-token'
+
+    - name: Run integration tests with real API
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: npm run test:integration
+      env:
+        CI: true
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
 
   validate:
     runs-on: ubuntu-latest

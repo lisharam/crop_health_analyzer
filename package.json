@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
+    "test:integration": "jest --runInBand --testMatch '**/*(*.integration).test.js'",
     "lint": "eslint .",
     "build": "mkdir -p dist && cp -r *.html *.js *.css dist/",
     "ci": "npm run lint && npm test"

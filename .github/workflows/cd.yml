@@ -26,7 +26,13 @@ jobs:
       run: npm ci
       
     - name: Build and optimize
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
       run: |
+        # Create .env file from secrets
+        echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
+        echo "PROXY_TOKEN=${{ secrets.PROXY_TOKEN }}" >> .env
         npm run build
         
     - name: Deploy to GitHub Pages
