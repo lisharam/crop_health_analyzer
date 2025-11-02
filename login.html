@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name" data-i18n="brand.name">Crop Health Analyzer</span></div>
+    <nav class="top-nav" aria-label="Top navigation">
+      <a class="nav-btn" href="index.html">Home</a>
+      <a class="nav-btn" href="upload.html" data-i18n="nav.upload">Upload</a>
+    <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+      <a class="nav-btn" href="dashboard.html">Dashboard</a>
+      <a class="nav-btn" href="kb.html">Knowledge base</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
+      <a class="nav-btn admin" href="admin.html">Admin</a>
+    </nav>
+    <div class="auth">
+      <a class="btn alt" href="signup.html">Sign up</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+  <h1 data-i18n="login.title">Welcome back</h1>
+  <p data-i18n="login.subtitle">Sign in to access your saved analyses and dashboard.</p>
+    </section>
+
+    <section class="card auth-card">
+      <form id="loginForm" onsubmit="return false;">
+        <label data-i18n="login.email_label">Email
+          <input id="loginEmail" type="email" required placeholder="you@example.com" data-i18n-placeholder="login.email_placeholder" />
+        </label>
+        <label data-i18n="login.password_label">Password
+          <input id="loginPassword" type="password" required placeholder="••••••••" data-i18n-placeholder="login.password_placeholder" />
+        </label>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+    <button id="loginSubmit" class="btn primary" data-i18n="auth.sign_in">Sign in</button>
+      <button id="demoLogin" class="btn alt" data-i18n="login.demo">Demo Login</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© Crop Health Analyzer</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="ai_features.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Soil Health Scanner - Crop Health Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .soil-container{max-width:900px;margin:20px auto;padding:20px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .preview{display:flex;gap:12px;align-items:center}
+    .sensor-row{display:flex;gap:8px;align-items:center;margin-top:12px}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><span class="logo-emoji">🌾</span><span class="brand-name">Crop Health Analyzer</span></div>
+  <nav class="top-nav" aria-label="Top navigation">
+    <a class="nav-btn" href="index.html">Home</a>
+      <a class="nav-btn" href="upload.html">Upload</a>
+       <a class="nav-btn" href="chatbot.html">chatbot</a>
+        <a class="nav-btn" href="forum.html">forum</a>
+         <a class="nav-btn" href="soil.html">soil</a>
+      <a class="nav-btn" href="dashboard.html">Dashboard</a>
+      <a class="nav-btn" href="kb.html">Knowledge base</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
+      <a class="nav-btn admin" href="admin.html">Admin</a>
+  </nav>
+  <div class="auth">
+    <a class="btn alt" href="login.html">Sign in</a>
+    <a class="btn" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="container soil-container">
+  <h1>Soil Health Scanner</h1>
+  <p>Upload a photo of soil or simulate a Bluetooth sensor reading (demo). The AI will estimate pH, moisture and likely N/P/K deficiencies.</p>
+
+  <div class="preview">
+    <div>
+      <label>Soil Photo<input id="soilPhoto" type="file" accept="image/*" /></label>
+      <div id="soilPreview"></div>
+    </div>
+    <div style="flex:1">
+      <div class="sensor-row">
+        <button id="simulateSensor" class="btn alt">Simulate Sensor</button>
+        <select id="sensorMode"><option value="moist">Moisture</option><option value="ph">pH</option><option value="n">Nitrogen</option></select>
+      </div>
+      <div id="sensorResult" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <div style="margin-top:14px">
+    <h3>Analysis</h3>
+    <div id="soilAnalysis"></div>
+  </div>
+</main>
+
+<script src="ai_features.js"></script>
+</body>
+</html>
