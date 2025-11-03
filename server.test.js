@@ -25,14 +25,17 @@ describe('API Endpoints', () => {
       const response = await request(server)
         .post('/api/ai')
         .send({});
-      expect(response.statusCode).toBe(400);
+      // If a PROXY_TOKEN is configured the endpoint requires the X-Proxy-Token header
+      const expected = process.env.PROXY_TOKEN ? 401 : 400
+      expect(response.statusCode).toBe(expected);
     });
 
     it('should reject too long prompts', async () => {
       const response = await request(server)
         .post('/api/ai')
         .send({ prompt: 'a'.repeat(2001) });
-      expect(response.statusCode).toBe(400);
+      const expected = process.env.PROXY_TOKEN ? 401 : 400
+      expect(response.statusCode).toBe(expected);
     });
 
     it('should accept valid prompts', async () => {

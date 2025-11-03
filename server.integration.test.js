@@ -13,9 +13,9 @@ describe('API Integration Tests', () => {
   });
 
   describe('POST /api/ai with real API key', () => {
-    // Skip all tests if no API key is configured
-    if (!process.env.OPENAI_API_KEY) {
-      it.skip('Integration tests - OPENAI_API_KEY not configured', () => {});
+    // Skip all tests if neither a real API key nor the mock mode is configured
+    if (!process.env.OPENAI_API_KEY && process.env.MOCK_OPENAI !== 'true') {
+      it.skip('Integration tests - OPENAI_API_KEY not configured and MOCK_OPENAI not set', () => {});
       return;
     }
 

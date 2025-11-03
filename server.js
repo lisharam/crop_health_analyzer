@@ -38,6 +38,12 @@ app.post('/api/ai', aiLimiter, requireToken, async (req, res)=>{
   if(prompt.length > 2000) return res.status(400).json({error:'prompt too long'})
   lang = String(lang||'en')
 
+  // Allow a fast local/CI testing mode that bypasses OpenAI and returns a canned reply.
+  if (process.env.MOCK_OPENAI === 'true') {
+    const mockReply = process.env.MOCK_OPENAI_REPLY || 'This is a mocked AI reply for testing.'
+    return res.json({reply: mockReply})
+  }
+
   if(!OPENAI_KEY) return res.status(500).json({error:'Server misconfigured: OPENAI_API_KEY not set'})
   // Improved system prompt tailored for Indian crops and safe, concise guidance
   const systemPrompt = `You are an expert agricultural advisor focused on smallholder farmers in India. When given a farmer's symptom description and crop type, do the following: 1) Provide one or two most probable diagnoses (disease/pest/nutrient issue), 2) Give likely causes or contributing factors (soil, water, pests, weather, fertilizer), 3) Provide concise, practical, low-cost remedy steps (organic & chemical options where applicable), 4) Suggest one safe prevention step farmers can do, 5) Keep responses short (3-6 bullet points) and use the same language requested. Avoid medical, legal, or toxicological instructions; when a pesticide is listed, include safety precautions and recommended protective gear. Mention if a soil test or expert lab is recommended.`
