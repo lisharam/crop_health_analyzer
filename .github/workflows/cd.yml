@@ -4,9 +4,10 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '**.html'
-      - '**.js'
-      - '**.css'
+      # Use recursive globs so changes in subfolders trigger the workflow
+      - '**/*.html'
+      - '**/*.js'
+      - '**/*.css'
       - 'package.json'
 
 jobs:
@@ -38,7 +39,7 @@ jobs:
         echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
         echo "PROXY_TOKEN=${{ secrets.PROXY_TOKEN }}" >> .env
         npm run build
-    - name: Diagnostics: list build output
+    - name: "Diagnostics: list build output"
       run: |
         echo "--- dist directory listing ---"
         if [ -d dist ]; then
@@ -46,7 +47,7 @@ jobs:
         else
           echo "dist directory missing"
         fi
-    - name: Diagnostics: preview built index.html
+    - name: "Diagnostics: preview built index.html"
       run: |
         if [ -f dist/index.html ]; then
           echo "--- head dist/index.html ---"
