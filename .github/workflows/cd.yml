@@ -13,7 +13,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required for gh-pages deployment
+      contents: read
+      pages: write
+      id-token: write
     
     steps:
     - uses: actions/checkout@v3
@@ -40,5 +42,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: dist # Change this if your build output directory is different
+        folder: dist # build output directory
+        token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
+        clean: true
