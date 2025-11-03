@@ -38,6 +38,22 @@ jobs:
         echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
         echo "PROXY_TOKEN=${{ secrets.PROXY_TOKEN }}" >> .env
         npm run build
+    - name: Diagnostics: list build output
+      run: |
+        echo "--- dist directory listing ---"
+        if [ -d dist ]; then
+          ls -la dist
+        else
+          echo "dist directory missing"
+        fi
+    - name: Diagnostics: preview built index.html
+      run: |
+        if [ -f dist/index.html ]; then
+          echo "--- head dist/index.html ---"
+          head -n 30 dist/index.html || true
+        else
+          echo "dist/index.html not found"
+        fi
         
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
