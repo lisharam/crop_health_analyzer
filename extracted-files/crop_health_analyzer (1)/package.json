@@ -1,5 +1,5 @@
 {
-  "name": "crop-health-analyzer-proxy",
+  "name": "crop-health-analyzer-proxy-extracted",
   "version": "1.0.0",
   "description": "Small proxy to call OpenAI for Crop Health Analyzer demo",
   "main": "server.js",
